@@ -1,0 +1,11 @@
+
+// fonts
+
+$mainfont: Raleway;
+
+@mixin font_normal($fontsize,$fontweight){
+    font-family: $mainfont;
+    font-style: normal;
+    font-size: $fontsize !important;
+    font-weight: $fontweight !important;
+}

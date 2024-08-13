@@ -1,0 +1,109 @@
+
+@import '../src/component/stylekit/mixins.scss';
+
+body {
+  background-color: var(--tg-theme-secondary-bg-color);
+
+  
+}
+
+
+
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  // height: 100%;
+}
+
+.TitleBlock{
+  position: relative;
+ 
+  width: 90%;
+  min-height: 80px;
+  margin-top:80px;
+  left: 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+
+}
+
+.TitleBlockTitle{
+
+  @include font_normal($fontsize:30px,$fontweight:600);
+  color: var(--tg-theme-text-color);
+  flex-shrink: 0;
+  word-break: break-all;
+
+  padding: 0;
+  margin: 0;
+}
+
+.TitleBlockDesp{
+  margin-top: 30px;
+  @include font_normal($fontsize:20px,$fontweight:400);
+  color: var(--tg-theme-text-color);
+  flex-shrink: 0;
+
+  padding: 0;
+  margin: 0;
+}
+
+.horoscopeHolderBlock{
+  position: relative;
+  width: 90%;
+  min-height: 500px;
+
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+  // background-color: red;
+  
+
+ 
+  .horoscopeBlock{
+    height: 200px;
+    width: 45%;
+    background-color: var(--tg-theme-bg-color);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+    .horoscopeImg{
+      width: 60px;
+      height: 60px;
+      margin-bottom: 30px;
+    }
+
+    .horoscopeTitle{
+      @include font_normal($fontsize:20px,$fontweight:600);
+      color: var(--tg-theme-text-color);
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .horoscopeDesp{
+      @include font_normal($fontsize:10px,$fontweight:400);
+      color: var(--tg-theme-text-color);
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+
+   
+  }
+}
+
