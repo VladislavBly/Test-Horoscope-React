@@ -12,6 +12,7 @@ function useTelegram() {
     return {
         tg,
         user: tg.initDataUnsafe?.user?.first_name,
+        lang:tg.initDataUnsafe?.user?.language_code,
         BackButton
 
     }

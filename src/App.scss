@@ -35,7 +35,7 @@ body {
 
 .TitleBlockTitle{
 
-  @include font_normal($fontsize:30px,$fontweight:600);
+  @include font_normal($fontsize:25px,$fontweight:600);
   color: var(--tg-theme-text-color);
   flex-shrink: 0;
   word-break: break-all;
@@ -46,7 +46,7 @@ body {
 
 .TitleBlockDesp{
   margin-top: 30px;
-  @include font_normal($fontsize:20px,$fontweight:400);
+  @include font_normal($fontsize:15px,$fontweight:400);
   color: var(--tg-theme-text-color);
   flex-shrink: 0;
 
@@ -88,11 +88,13 @@ body {
       margin-bottom: 30px;
     }
 
+
     .horoscopeTitle{
       @include font_normal($fontsize:20px,$fontweight:600);
       color: var(--tg-theme-text-color);
       margin: 0;
       margin-bottom: 10px;
+      text-decoration: none;
     }
 
     .horoscopeDesp{
@@ -106,4 +108,34 @@ body {
    
   }
 }
+
+a {
+  text-decoration: none;
+  color: var(--tg-theme-text-color);
+}
+
+
+.changeLang{
+  cursor: pointer;
+  position: absolute;
+  top:20px;
+  left: 20px;
+  height: 50px;
+  width: 150px;
+  background-color: var(--tg-theme-bg-color);
+  border-radius: 20px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+
+
+  .changeLangText{
+    @include font_normal($fontsize:15px,$fontweight:600);
+    color: var(--tg-theme-text-color);
+  }
+}
+
 

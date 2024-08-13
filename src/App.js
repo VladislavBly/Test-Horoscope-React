@@ -2,52 +2,44 @@ import './App.scss';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { useEffect, useState } from 'react';
-import horoscope_data from './horoscopeData';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './Pages/MainPage/MainPage';
+import DetailHotoscopePage from './Pages/DetailHoroscopePage/DetailHoroscopePage';
 import useTelegram from './hooks/useTelegram';
+
 
 function App() {
   const { t } = useTranslation();
-  const [horoscope, setHoroscope] = useState([]);
 
-  const {tg, user} = useTelegram();
+  const cock_lang = localStorage.getItem('lang');
+  const {user, lang} = useTelegram();
 
-
-  const renderHoroscope = () => {
-    const listt = horoscope_data.map((item, index) => (
-      <div key={index} className='horoscopeBlock'>
-        <img className='horoscopeImg' src={item.img} alt={item.name} />
-        <p className='horoscopeTitle'>{t(item.name)}</p>
-        <p className='horoscopeDesp'>{item.date}</p> 
-      </div>
-    ));
-
- 
-    if (horoscope.length === 0) {
-      setHoroscope(listt);
-    }
-  }
-  useEffect(() => {
-    renderHoroscope()
-  }, []);
+  const [selectLang, setSelectLang] = useState(false);
 
   // Установка языка
   useEffect(() => {
-    i18n.changeLanguage('uz');
+    console.log('sss', lang)
+    if (cock_lang === 'en'){
+      i18n.changeLanguage('en');
+    }
+    else if(cock_lang === 'ru'){
+      i18n.changeLanguage('ru');
+    } else{
+      i18n.changeLanguage(lang);
+      localStorage.setItem('lang', lang);
+    
+    }    
   }, []);
+
 
   return (
     <div className="App">
-      <div className='TitleBlock'>
-        <h1 className='TitleBlockTitle'>
-          {t('TitleBlockTitle')} {user}!
-        </h1>
-        <p className='TitleBlockDesp'>{t('TitleBlockDesp')}</p>
-      </div>
+      <div className='selectLang'></div>
+      <Routes>
+        <Route index element={<MainPage />}></Route>
 
-      <div className='horoscopeHolderBlock'>
-        {horoscope}
-      </div>
-      
+        <Route path={'horoscope/:tag'} element={<DetailHotoscopePage />}></Route>
+      </Routes>
     </div>
   );
 }
