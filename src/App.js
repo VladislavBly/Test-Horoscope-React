@@ -31,7 +31,7 @@ function App() {
     renderHoroscope()
 
     
-  }, []);
+  }, [renderHoroscope, tg]);
 
   // Установка языка
   useEffect(() => {
