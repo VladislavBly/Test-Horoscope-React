@@ -27,11 +27,8 @@ function App() {
     }
   }
   useEffect(() => {
-    tg.ready();
     renderHoroscope()
-
-    
-  }, [renderHoroscope, tg]);
+  }, []);
 
   // Установка языка
   useEffect(() => {
